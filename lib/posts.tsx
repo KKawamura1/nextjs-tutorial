@@ -2,14 +2,20 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-type PostData = {
+type _PostData = {
+  date: string,
+  title: string,
+};
+
+export type PostData = {
+  id: string,
   date: string,
   title: string,
 };
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
-const getSortedPostsData = () => {
+const getSortedPostsData: () => PostData[] = () => {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory)
   const allPostsData = fileNames.map(fileName => {
@@ -26,7 +32,7 @@ const getSortedPostsData = () => {
     // Combine the data with the id
     return {
       id,
-      ...(matterResult.data as PostData)
+      ...(matterResult.data as _PostData)
     }
   })
   // Sort posts by date
