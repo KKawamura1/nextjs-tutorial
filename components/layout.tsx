@@ -7,7 +7,7 @@ import styles from "./layout.module.scss";
 import utilStyles from "../styles/utils.module.scss";
 
 type Props = {
-  home: boolean,
+  home?: boolean,
 };
 
 const name = "Keigo Kawamura";
