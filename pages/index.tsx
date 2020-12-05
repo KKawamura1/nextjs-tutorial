@@ -1,9 +1,9 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from "../components/layout"
+import Head from 'next/head';
+import Layout, { siteTitle } from "../components/layout";
 // @ts-ignore
-import utilStyles from "../styles/utils.module.scss"
+import utilStyles from "../styles/utils.module.scss";
 
-export default function Home() {
+const Home = () => {
   return (
     <Layout home>
       <Head>
@@ -18,4 +18,5 @@ export default function Home() {
       </section>
     </Layout>
   )
-}
+};
+export default Home();
