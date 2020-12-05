@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@types/styled-jsx": "^2.2.8",
+    "gray-matter": "^4.0.2",
     "next": "^10.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
