@@ -13,6 +13,12 @@ export type PostData = {
   title: string,
 };
 
+export type StaticPath = {
+  params: {
+    id: string,
+  }
+};
+
 const postsDirectory = path.join(process.cwd(), 'posts');
 
 const getPostData = (id: string): PostData => {
@@ -51,7 +57,7 @@ const getSortedPostsData: () => PostData[] = () => {
 };
 export { getSortedPostsData };
 
-const getAllPostIds = () => {
+const getAllPostIds = (): StaticPath[] => {
   const fileNames = fs.readdirSync(postsDirectory);
   return fileNames.map(fileName => {
     return {
