@@ -44,6 +44,7 @@ const getSortedPostsData: () => PostData[] = () => {
     }
   })
 };
+export { getSortedPostsData };
 
 const getAllPostIds = () => {
   const fileNames = fs.readdirSync(postsDirectory);
@@ -55,5 +56,4 @@ const getAllPostIds = () => {
     };
   });
 };
-
-export { getSortedPostsData, getAllPostIds };
+export { getAllPostIds };
