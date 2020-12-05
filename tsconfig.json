@@ -16,6 +16,6 @@
       "isolatedModules": true,
       "moduleResolution": "node"
     },
-    "include": ["components", "pages"], 
+    "include": ["components", "pages", "lib"], 
     "exclude": ["node_modules"]
   }
