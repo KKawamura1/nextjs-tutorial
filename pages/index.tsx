@@ -9,6 +9,14 @@ type StaticProps = {
   allPostsData: PostData[]
 }
 
+const getStaticProps: () => Promise<{props: StaticProps}> = async () => {
+  const allPostsData = await getSortedPostsData();
+  return {
+    props: { allPostsData }
+  };
+};
+export { getStaticProps };
+
 const Home = ({ allPostsData }: StaticProps) => {
   return (
     <Layout home>
@@ -40,11 +48,3 @@ const Home = ({ allPostsData }: StaticProps) => {
   )
 };
 export default Home;
-
-const getStaticProps: () => Promise<{props: StaticProps}> = async () => {
-  const allPostsData = getSortedPostsData();
-  return {
-    props: { allPostsData }
-  };
-};
-export { getStaticProps };
