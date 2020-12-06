@@ -1,7 +1,10 @@
 import Head from "next/head";
 import Layout from "../../components/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
-import type { StaticPath, PostData } from "../../lib/posts"
+import type { StaticPath, PostData } from "../../lib/posts";
+import Date from "../../components/date";
+//@ts-ignore
+import utilStyles from '../../styles/utils.module.scss';
 
 type StaticProps = {
   postData: PostData
@@ -32,13 +35,13 @@ const Post = ({ postData }: StaticProps) => {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      {postData.title}
-      <br />
-      {postData.id}
-      <br />
-      {postData.date}
-      <br />
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }}/>
+      <article>
+        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+        <div className={utilStyles.lightText}>
+          <Date dateString={postData.date} />
+        </div>
+        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }}/>
+      </article>
     </Layout>
   )
 };
